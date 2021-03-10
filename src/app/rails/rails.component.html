@@ -1,0 +1,28 @@
+<div class="big-rails-container">
+  <div class="rails-container">
+    <div *ngFor="let rail of rails" class="rail">
+      <button mat-fab selected [ngStyle]="{'background-color': rail.color}" class="rail-button" (click)="claimRail(rail.name)">
+        <h1 style="color: white; font-weight: bold; margin: 0px;">{{rail.name}}</h1>
+      </button>
+      <div id="first-{{rail.name}}" class="first-square">
+        <h1 style="transform: rotate(-45deg);"><b>{{rail.firstVal}}</b></h1>
+      </div>
+      <div id="second-{{rail.name}}" class="second-square">
+        <h1><b>{{rail.secondVal}}</b></h1>
+      </div>
+    </div>
+  </div>
+  <div class="rails-container">
+    <div *ngFor="let rail2 of rails2" class="rail">
+      <button mat-fab selected [ngStyle]="{'background-color': rail2.color}" class="rail-button" (click)="claimRail(rail2.name)">
+        <h1 style="color: white; font-weight: bold; margin: 0px;">{{rail2.name}}</h1>
+      </button>
+      <div id="first-{{rail2.name}}" class="first-square">
+        <h1 style="transform: rotate(-45deg);"><b>{{rail2.firstVal}}</b></h1>
+      </div>
+      <div id="second-{{rail2.name}}" class="second-square">
+        <h1><b>{{rail2.secondVal}}</b></h1>
+      </div>
+    </div>
+  </div>
+</div>

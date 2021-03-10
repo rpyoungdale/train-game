@@ -1,0 +1,81 @@
+.card {
+  // width: 300px;
+  // height: fit-content;
+  background-color: slategray;
+  border-radius: 8px;
+}
+
+// .page-container {
+//   // text-align: center;
+//   // padding-left: 25%;
+//   // padding-right: 25%;
+//   padding-top: 30px;
+//   // position: absolute;
+//   // width: 300px;
+// }
+
+.image {
+  height: 300px;
+  width: auto;
+}
+
+.button {
+  margin: 20px;
+}
+
+.mat-icon {
+  font-size: 40px;
+  
+}
+
+.mat-card-footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 7px;
+}
+
+.next-button {
+  width: 200px;
+  height: 50px;
+  margin: 5px;
+  background-color: #FF0000;
+  color: white;
+  font-size: 25px;
+}
+
+.last-button {
+  width: 200px;
+  height: 50px;
+  margin: 5px;
+  background-color: #FF0000;
+  color: white;
+  font-size: 25px;
+}
+
+.shuffle-button {
+  width: 200px;
+  height: 50px;
+  margin: 5px;
+  color: #FF0000;
+  border-color: #FF0000;
+  border-width: 1px;
+  border-style: solid;
+  font-size: 25px;
+}
+
+.used-cards {
+  display: flex;
+  flex-direction: row;
+}
+
+.both-cards {
+  display: flex;
+  margin-right: 300px;
+}
+
+// .example-button-container {
+//   display: flex;
+//   justify-content: center;
+//   width: 60px;
+// }

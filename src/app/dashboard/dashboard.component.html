@@ -1,0 +1,17 @@
+<!-- <mat-toolbar class="toolbar">Welcome to Metro X!</mat-toolbar> -->
+<div class="header" style="text-align: center; margin-top: 30px;">
+  <img src="../../assets/metro-logo.svg">
+  <button class="score-card" (click)="openScoreCard()"><mat-icon style="font-weight: bold;">list</mat-icon></button>
+  <!-- <button class="new-game" (click)="startNewGame()"><h1 style="font-weight: bold;">New Game</h1><mat-icon style="font-weight: bold;">refresh</mat-icon></button> -->
+</div>
+<div class="container">
+  <div class="container">
+    <app-card [newGame]="newGameEmitter"></app-card>
+  </div>
+  <div class="container">
+    <app-rails [newGame]="newGameEmitter"></app-rails>
+  </div>
+</div>
+<!-- <div class="footer">
+  <app-footer></app-footer>
+</div> -->

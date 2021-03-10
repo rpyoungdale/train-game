@@ -1,0 +1,52 @@
+.toolbar {
+  background-color: slategray;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.header {
+  margin-top: 64px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.score-card {
+  background-color: white;
+  border-radius: 8px;
+  border-width: 1px;
+  width: 64px;
+  height: 64px;
+  margin-left: 50px;
+  cursor: pointer;
+}
+
+.new-game {
+  background-color: white;
+  border-radius: 8px;
+  border-width: 1px;
+  width: 180px;
+  height: 64px;
+  margin-left: 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.new-game.h1 {
+  align-content: center;
+}
+
+::ng-deep .mat-bottom-sheet-container{
+  min-width: 100vw!important;
+  border-radius: 32px!important;
+  padding-left: 50px!important;
+  padding-right: 50px!important;
+}
