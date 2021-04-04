@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 
 import { ScoreSheetComponent } from '../score-sheet/score-sheet.component';
+import { SharedServiceService } from '../shared-service.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,9 +11,11 @@ import { ScoreSheetComponent } from '../score-sheet/score-sheet.component';
 })
 export class DashboardComponent implements OnInit {
   @Output() newGameEmitter = new EventEmitter<boolean>(false);
-  // @Input() usedCards;
 
-  constructor(private _bottomSheet: MatBottomSheet) { }
+  constructor(
+    private _bottomSheet: MatBottomSheet,
+    private sharedService: SharedServiceService,
+  ) { }
 
   ngOnInit(): void {
   }
@@ -24,7 +27,6 @@ export class DashboardComponent implements OnInit {
   }
 
   startNewGame(): void {
-    debugger
-    this.newGameEmitter.emit(true);
+    this.sharedService.newGame();
   }
 }

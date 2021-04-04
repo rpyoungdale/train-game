@@ -8,8 +8,6 @@ import { SharedServiceService } from '../shared-service.service';
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent implements OnInit {
-  @Input() newGame: boolean;
-
   cards = [
     {
       display: 'Free',
@@ -68,9 +66,6 @@ export class CardComponent implements OnInit {
       name: 'transfer',
     },
   ];
-  
-  // @Output() cardsUsed = new EventEmitter<any[]>();
-  // usedCards = [];
 
   nextCardIndex = 0;
   forward = true;
@@ -81,6 +76,11 @@ export class CardComponent implements OnInit {
 
   ngOnInit(): void {
     this.shuffle();
+    this.service.resetGame.subscribe(newGame => {
+      if(newGame) {
+        this.resetBoard();
+      }
+    });
   }
 
   nextCard(): void {
@@ -140,5 +140,11 @@ export class CardComponent implements OnInit {
     this.nextCardIndex = 0;
   }
 
-
+  resetBoard() {
+    this.nextCardIndex = 0;
+    this.forward = true;
+    this.needsShuffle = false;
+    this.cardFlipped = false;
+    this.shuffle();
+  }
 }

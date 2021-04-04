@@ -8,10 +8,15 @@ export class SharedServiceService {
   usedCardsSubject = new ReplaySubject<string>();
   usedCards = [];
 
+  resetGame = new BehaviorSubject<boolean>(false);
+
   constructor() { }
 
   addCard(card): void {
-    // this.usedCards.push(card);
     this.usedCardsSubject.next(card);
+  }
+
+  newGame() {
+    this.resetGame.next(true);
   }
 }

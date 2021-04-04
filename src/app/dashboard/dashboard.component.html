@@ -1,16 +1,25 @@
 <!-- <mat-toolbar class="toolbar">Welcome to Metro X!</mat-toolbar> -->
 <div class="header" style="text-align: center; margin-top: 30px;">
   <!-- <a class="coffee-link" href="https://www.buymeacoffee.com/ryoungdale">Buy the developer a coffee</a> -->
-  <img src="../../assets/metro-logo.svg">
-  <button class="score-card" (click)="openScoreCard()"><mat-icon style="font-weight: bold;">list</mat-icon></button>
-  <!-- <button class="new-game" (click)="startNewGame()"><h1 style="font-weight: bold;">New Game</h1><mat-icon style="font-weight: bold;">refresh</mat-icon></button> -->
+  <div style="width: 63%; text-align: end;">
+    <img src="../../assets/metro-logo.svg">
+  </div>
+  <div style="width: 37%; text-align: end; padding-right: 64px;">
+    <button mat-raised-button style="margin-right: 30px;" class="score-card" (click)="startNewGame()">
+      <mat-icon style="font-weight: bold;">refresh</mat-icon>
+    </button>
+    <button mat-raised-button style="margin-right: 30px;" class="score-card" (click)="openScoreCard()">
+      <mat-icon style="font-weight: bold;">settings</mat-icon>
+    </button>
+    <button mat-raised-button class="score-card" (click)="openScoreCard()"><mat-icon style="font-weight: bold;">list</mat-icon></button>
+  </div>
 </div>
 <div class="container">
   <div class="card-flipper">
-    <app-card [newGame]="newGameEmitter"></app-card>
+    <app-card></app-card>
   </div>
   <div class="letters">
-    <app-rails [newGame]="newGameEmitter"></app-rails>
+    <app-rails></app-rails>
   </div>
 </div>
 <div>

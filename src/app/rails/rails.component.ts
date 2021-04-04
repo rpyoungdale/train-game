@@ -1,13 +1,12 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { SharedServiceService } from '../shared-service.service';
 
 @Component({
   selector: 'app-rails',
   templateUrl: './rails.component.html',
   styleUrls: ['./rails.component.scss']
 })
-export class RailsComponent implements OnInit, OnChanges {
-  @Input() newGame: boolean;
-
+export class RailsComponent implements OnInit {
   rails = [
     { 
       name: 'A',
@@ -68,12 +67,14 @@ export class RailsComponent implements OnInit, OnChanges {
     },
   ]
 
-  constructor() { }
+  constructor(private sharedService: SharedServiceService) { }
 
-  ngOnInit(): void { }
-
-  ngOnChanges() {
-    console.log('hey')
+  ngOnInit(): void {
+    this.sharedService.resetGame.subscribe(newGame => {
+      if (newGame) {
+        this.resetRails();
+      }
+    });
   }
 
   claimRail(id: string): void {
@@ -81,5 +82,21 @@ export class RailsComponent implements OnInit, OnChanges {
     firstSquare.opacity = firstSquare.opacity !== '0.1' ? '0.1' : '1';
     const secondSquare = document.getElementById('second-' + id).style;
     secondSquare.opacity = secondSquare.opacity !== '1' ? '1' : '0.1';
+  }
+
+  resetRails() {
+    this.rails.forEach((rail) => {
+      const firstSquare = document.getElementById('first-' + rail.name).style;
+      firstSquare.opacity = '1';
+      const secondSquare = document.getElementById('second-' + rail.name).style;
+      secondSquare.opacity = '0.1';
+    });
+
+    this.rails2.forEach((rail) => {
+      const firstSquare = document.getElementById('first-' + rail.name).style;
+      firstSquare.opacity = '1';
+      const secondSquare = document.getElementById('second-' + rail.name).style;
+      secondSquare.opacity = '0.1';
+    });
   }
 }

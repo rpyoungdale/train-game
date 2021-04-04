@@ -8,25 +8,25 @@ import { SharedServiceService } from '../shared-service.service';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit, OnDestroy {
-
-  // @Input() usedCards: [];
-
   usedCards: any[];
-  usedCardsSubscription: Subscription
-
+  usedCardsSubscription: Subscription;
   cardCount = 0;
   spotsRemaining = 23;
 
-  constructor(private service: SharedServiceService) { }
+  constructor(private sharedService: SharedServiceService) { }
 
   ngOnInit(): void {
-    this.usedCards = this.service.usedCards;
-    // this.cardCount = this.service.usedCards.length;
+    this.usedCards = this.sharedService.usedCards;
     this.usedCardsSubscription = this.subscribeToUsedCards();
+    this.sharedService.resetGame.subscribe(newGame => {
+      if (newGame) {
+        this.resetFooter();
+      }
+    });
   }
 
   subscribeToUsedCards() {
-    return this.service.usedCardsSubject.subscribe(card => {
+    return this.sharedService.usedCardsSubject.subscribe(card => {
       this.cardCount += 1;
       if(card !== 'free') {
         this.spotsRemaining -= 1;
@@ -40,6 +40,16 @@ export class FooterComponent implements OnInit, OnDestroy {
       elem.style.display = "inline-block";
       document.getElementById("used-cards").appendChild(elem);
     });
+  }
+
+  resetFooter(): void {
+    this.usedCards = [];
+    this.cardCount = 0;
+    this.spotsRemaining = 23;
+    const usedCardsElem = document.getElementById("used-cards");
+    while(usedCardsElem.firstChild) {
+      usedCardsElem.removeChild(usedCardsElem.firstChild);
+    }
   }
 
   ngOnDestroy(): void {
