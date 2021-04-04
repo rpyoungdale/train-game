@@ -46,7 +46,8 @@
 
 ::ng-deep .mat-bottom-sheet-container{
   min-width: 100vw!important;
-  border-radius: 32px!important;
+  border-top-left-radius: 24px!important;
+  border-top-right-radius: 24px!important;
   padding-left: 50px!important;
   padding-right: 50px!important;
 }
