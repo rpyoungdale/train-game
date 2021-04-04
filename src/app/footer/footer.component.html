@@ -1,12 +1,19 @@
 <footer class="footer">
   <div class="cardInfo">
     <div class="first-col">
-      <h2>Card History</h2>
+      <mat-icon>
+        history
+      </mat-icon>
+      <h3>
+        Card History
+      </h3>
+    </div>
+    <div style="text-align: end; width: 25%;">
+      <h3>Cards Shown: {{cardCount}}&nbsp;&nbsp;&nbsp;<b>|</b></h3>
     </div>
     <div class="second-col">
-      <h2>Cards Shown: 12 | Spots Remaining: 4</h2>
+      <h3>&nbsp;&nbsp;&nbsp;Spots Remaining: {{spotsRemaining}}</h3>
     </div>
-    <h2></h2>
   </div>
   <div id="used-cards">
   </div>

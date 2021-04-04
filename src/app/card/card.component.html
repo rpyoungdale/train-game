@@ -1,23 +1,23 @@
 
 <div class="both-cards">
-  <!-- <div style="margin-right: 20px;">
+  <div style="padding-left: 64px;">
     <img id="mainDeck" class="image" mat-card-lg-image src="../assets/back.svg">
-  </div> -->
-  <div>
+  </div>
+  <div [hidden]="!nextCardIndex" style="padding-left: 24px;">
     <img id="currentCard" class="image" mat-card-lg-image src="../assets/back.svg">
   </div>
 </div>
-<div *ngIf="!needsShuffle">
+<div *ngIf="!needsShuffle" style="padding-left: 60px;">
   <button class="next-button" mat-raised-button (click)="nextCard()">
     Next
   </button>
 </div>
-<div *ngIf="!needsShuffle">
+<div *ngIf="!needsShuffle" style="padding-left: 60px;">
   <button *ngIf="nextCardIndex" class="last-button" mat-raised-button (click)="lastCard()">
     Previous
   </button>
 </div>
-<div>
+<div *ngIf="needsShuffle" style="padding-left: 60px;">
   <button class="shuffle-button" mat-raised-button (click)="shuffle()">
     Shuffle
   </button>

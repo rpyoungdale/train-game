@@ -84,6 +84,7 @@ export class CardComponent implements OnInit {
   }
 
   nextCard(): void {
+    debugger
     if(this.nextCardIndex < this.cards.length) {
       this.cardFlipped = true;
       if(!this.forward) this.nextCardIndex += 1;

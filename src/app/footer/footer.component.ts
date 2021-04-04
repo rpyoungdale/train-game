@@ -14,18 +14,30 @@ export class FooterComponent implements OnInit, OnDestroy {
   usedCards: any[];
   usedCardsSubscription: Subscription
 
+  cardCount = 0;
+  spotsRemaining = 23;
+
   constructor(private service: SharedServiceService) { }
 
   ngOnInit(): void {
     this.usedCards = this.service.usedCards;
+    // this.cardCount = this.service.usedCards.length;
     this.usedCardsSubscription = this.subscribeToUsedCards();
   }
 
   subscribeToUsedCards() {
     return this.service.usedCardsSubject.subscribe(card => {
+      this.cardCount += 1;
+      if(card !== 'free') {
+        this.spotsRemaining -= 1;
+      }
       var elem = document.createElement("img");
       elem.setAttribute("src", `../assets/${card}.svg`);
-      elem.classList.add("used-card");
+      elem.style.height = "60px";
+      elem.style.marginLeft = "5px";
+      elem.style.marginRight = "5px";
+      elem.style.paddingBottom = "10px";
+      elem.style.display = "inline-block";
       document.getElementById("used-cards").appendChild(elem);
     });
   }

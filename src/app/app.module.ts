@@ -16,6 +16,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { ScoreSheetComponent } from './score-sheet/score-sheet.component';
 import { FooterComponent } from './footer/footer.component';
+import { GameSetupComponent } from './game-setup/game-setup.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FooterComponent } from './footer/footer.component';
     DashboardComponent,
     RailsComponent,
     ScoreSheetComponent,
-    FooterComponent
+    FooterComponent,
+    GameSetupComponent
   ],
   imports: [
     BrowserModule,

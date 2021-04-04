@@ -6,15 +6,15 @@
 .container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
 }
 
-.header {
-  margin-top: 64px;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 24px;
+.card-flipper {
+  width: 50%;
+}
+
+.letters {
+  width: 50%;
+  justify-content: flex-end;
 }
 
 .score-card {
@@ -50,3 +50,14 @@
   padding-left: 50px!important;
   padding-right: 50px!important;
 }
+
+.coffee-link {
+  text-decoration: none;
+  color: #8696A0;
+  // font-family: cursive !important;
+  font-size: 28px;
+}
+
+// .footer {
+//   overflow-x: scroll;
+// }

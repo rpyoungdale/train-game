@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { GameSetupComponent } from './game-setup/game-setup.component';
 
 const routes: Routes = [
-  { path: 'gameplay', component: DashboardComponent }
+  { path: '', component: GameSetupComponent },
+  { path: 'gameplay', component: DashboardComponent },
 ];
 
 @NgModule({

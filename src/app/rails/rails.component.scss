@@ -8,12 +8,6 @@ mat-chip {
   margin-top: 5px;
 }
 
-// .rail-list {
-//   padding-left: 300px;
-//   padding-top: 30px;
-//   border-width: 10px;
-// }
-
 .rail {
   display: flex;
   align-items: center;
@@ -37,13 +31,13 @@ mat-chip {
 
 .rails-container {
   display: flex;
-  // justify-content: center;
-  // align-items: center;
   flex-direction: column;
 }
 
 .big-rails-container {
   display: flex;
+  justify-content: flex-end;
+  padding-right: 47px;
 }
 
 .first-square {
