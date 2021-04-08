@@ -9,13 +9,8 @@
 </div>
 <div class="next-previous">
   <div *ngIf="!needsShuffle" style="padding-left: 62px;">
-    <button class="next-button" mat-raised-button (click)="nextCard()">
-      Next
-    </button>
-  </div>
-  <div *ngIf="!needsShuffle" style="padding-left: 19px;">
-    <button *ngIf="nextCardIndex" class="last-button" mat-raised-button (click)="lastCard()">
-      Previous
+    <button class="next-button" mat-raised-button (click)="nextCard()" [disabled]="gameOver">
+      {{ gameOver ? 'Game Over' : 'Next' }}
     </button>
   </div>
 </div>
@@ -24,8 +19,3 @@
     Shuffle
   </button>
 </div>
-<!-- <div class="usedCards" *ngFor="let card of cardsUsed">
-  <h3>
-    {{ card }}
-  </h3>
-</div> -->

@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { Subscription } from 'rxjs';
 
 import { ScoreSheetComponent } from '../score-sheet/score-sheet.component';
 import { SharedServiceService } from '../shared-service.service';
@@ -9,8 +10,9 @@ import { SharedServiceService } from '../shared-service.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit, OnDestroy {
   @Output() newGameEmitter = new EventEmitter<boolean>(false);
+  gameOverSubscription: Subscription;
 
   constructor(
     private _bottomSheet: MatBottomSheet,
@@ -18,6 +20,9 @@ export class DashboardComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.gameOverSubscription = this.sharedService.isGameOver.subscribe(isGameOver => {
+      if(isGameOver) this.openScoreCard();
+    });
   }
 
   openScoreCard(): void {
@@ -28,5 +33,9 @@ export class DashboardComponent implements OnInit {
 
   startNewGame(): void {
     this.sharedService.newGame();
+  }
+
+  ngOnDestroy() {
+    this.gameOverSubscription?.unsubscribe();
   }
 }

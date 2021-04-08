@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { SharedServiceService } from '../shared-service.service';
 
@@ -8,6 +8,7 @@ import { SharedServiceService } from '../shared-service.service';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit, OnDestroy {
+  // @Output() gameOverEvent = new EventEmitter<boolean>();
   usedCards: any[];
   usedCardsSubscription: Subscription;
   cardCount = 0;
@@ -39,6 +40,10 @@ export class FooterComponent implements OnInit, OnDestroy {
       elem.style.paddingBottom = "10px";
       elem.style.display = "inline-block";
       document.getElementById("used-cards").appendChild(elem);
+
+      if (!this.spotsRemaining) {
+        this.sharedService.gameOver();
+      }
     });
   }
 

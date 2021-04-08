@@ -9,6 +9,7 @@ export class SharedServiceService {
   usedCards = [];
 
   resetGame = new BehaviorSubject<boolean>(false);
+  isGameOver = new BehaviorSubject<boolean>(false);
 
   constructor() { }
 
@@ -18,5 +19,9 @@ export class SharedServiceService {
 
   newGame() {
     this.resetGame.next(true);
+  }
+
+  gameOver() {
+    this.isGameOver.next(true);
   }
 }

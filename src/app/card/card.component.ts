@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { BehaviorSubject, Subscription } from 'rxjs';
 import { SharedServiceService } from '../shared-service.service';
 
 @Component({
@@ -7,7 +7,7 @@ import { SharedServiceService } from '../shared-service.service';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss']
 })
-export class CardComponent implements OnInit {
+export class CardComponent implements OnInit, OnDestroy {
   cards = [
     {
       display: 'Free',
@@ -27,7 +27,7 @@ export class CardComponent implements OnInit {
     },
     {
       display: '3',
-    name: 'standard-3',
+      name: 'standard-3',
     },
     {
       display: '3',
@@ -71,27 +71,34 @@ export class CardComponent implements OnInit {
   forward = true;
   needsShuffle = false;
   cardFlipped = false;
+  gameOver = false;
 
-  constructor(private service: SharedServiceService) { }
+  resetSubscription: Subscription;
+  gameOverSubscription: Subscription;
+
+  constructor(private sharedService: SharedServiceService) { }
 
   ngOnInit(): void {
     this.shuffle();
-    this.service.resetGame.subscribe(newGame => {
+    this.resetSubscription = this.sharedService.resetGame.subscribe(newGame => {
       if(newGame) {
         this.resetBoard();
       }
     });
+    this.gameOverSubscription = this.sharedService.isGameOver.subscribe(isGameOver => {
+      this.gameOver = isGameOver;
+    });
   }
 
   nextCard(): void {
-    debugger
     if(this.nextCardIndex < this.cards.length) {
       this.cardFlipped = true;
       if(!this.forward) this.nextCardIndex += 1;
       const card = document.getElementById("currentCard") as HTMLImageElement;
       card.src = `../assets/${this.cards[this.nextCardIndex].name}.svg`;
-      this.service.addCard(this.cards[this.nextCardIndex].name);
-      // this.cardsUsed.emit(this.usedCards);
+      if(this.nextCardIndex > 0) {
+        this.sharedService.addCard(this.cards[this.nextCardIndex - 1].name);
+      }
       if (this.cards[this.nextCardIndex].display === '6') this.needsShuffle = true;
       this.nextCardIndex += 1;
       this.forward = true;
@@ -115,6 +122,9 @@ export class CardComponent implements OnInit {
   }
 
   shuffle(): void {
+    if (this.nextCardIndex > 0) {
+      this.sharedService.addCard('standard-6');
+    }
     let currentIndex = this.cards.length;
     let temporaryValue;
     let randomIndex: number;
@@ -146,5 +156,10 @@ export class CardComponent implements OnInit {
     this.needsShuffle = false;
     this.cardFlipped = false;
     this.shuffle();
+  }
+
+  ngOnDestroy() {
+    this.resetSubscription?.unsubscribe();
+    this.gameOverSubscription?.unsubscribe();
   }
 }
