@@ -1,34 +1,42 @@
 .footer {
-  display: flex;
   position: fixed;
   bottom: 0;
-  width: 100%;
-  background-color: white;
-  text-align: flex-start;
-  height: 17%;
+  width: -webkit-fill-available;
+  height: 17vh;
   border-top: solid;
+  border-color: lightgray;
   border-width: 1px;
-  flex-flow: column;
+  margin-left: 1vw;
+  margin-right: 1vw;
 }
 
 .cardInfo {
+  // border-style: solid;
+  // border-width: 1px;
+
   display: flex;
-  padding: 10px;
+  padding: 8px;
 }
 
 .first-col {
-  padding-left: 10px;
+  border-right: solid;
+  border-width: 1px;
+  border-color: rgb(205, 204, 204);
+
+  padding-left: 5px;
+  padding-right: 10px;
   display: flex;
-  width: 25%;
+  width: 50%;
+  justify-content: space-between;
 }
 
 .second-col {
   width: 50%;
+  padding-left: 10px;
 }
 
 .used-cards {
   padding-left: 10px;
-  background-color: darkgray;
   bottom: 0;
   width: 100%;
   overflow-x: auto;

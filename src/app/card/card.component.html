@@ -1,6 +1,6 @@
 
 <div class="both-cards">
-  <div style="padding-left: 64px;">
+  <div>
     <img id="mainDeck" class="image" mat-card-lg-image src="../assets/back.svg">
   </div>
   <div [hidden]="!nextCardIndex" style="padding-left: 24px;">
@@ -8,13 +8,13 @@
   </div>
 </div>
 <div class="next-previous">
-  <div *ngIf="!needsShuffle" style="padding-left: 62px;">
+  <div *ngIf="!needsShuffle">
     <button class="next-button" mat-raised-button (click)="nextCard()" [disabled]="gameOver">
       {{ gameOver ? 'Game Over' : 'Next' }}
     </button>
   </div>
 </div>
-<div *ngIf="needsShuffle" style="padding-left: 60px;">
+<div *ngIf="needsShuffle">
   <button class="shuffle-button" mat-raised-button (click)="shuffle()">
     Shuffle
   </button>

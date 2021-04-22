@@ -1,5 +1,6 @@
-<div class="big-rails-container">
-  <div class="rails-container">
+<h1 id="gameModeName" style="text-align: end; margin-right: 8.3vw;"><strong>{{gameMode === 'metro' ? 'Metro City' : 'Tube Town'}}</strong></h1>
+<div class="big-rails-container" *ngIf="gameMode === 'metro'">
+  <div>
     <div *ngFor="let rail of rails" class="rail">
       <button mat-fab selected [ngStyle]="{'background-color': rail.color}" class="rail-button" (click)="claimRail(rail.name)">
         <h1 style="color: white; font-weight: bold; margin: 0px;">{{rail.name}}</h1>
@@ -12,7 +13,7 @@
       </div>
     </div>
   </div>
-  <div class="rails-container">
+  <div>
     <div *ngFor="let rail2 of rails2" class="rail">
       <button mat-fab selected [ngStyle]="{'background-color': rail2.color}" class="rail-button" (click)="claimRail(rail2.name)">
         <h1 style="color: white; font-weight: bold; margin: 0px;">{{rail2.name}}</h1>
@@ -22,6 +23,37 @@
       </div>
       <div id="second-{{rail2.name}}" class="second-square">
         <h1><b>{{rail2.secondVal}}</b></h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="big-rails-container" *ngIf="gameMode === 'tube'">
+  <div>
+    <div *ngFor="let rail3 of rails3" class="rail">
+      <button mat-fab selected [ngStyle]="{'background-color': rail3.color}" class="rail-button"
+        (click)="claimRail(rail3.name)">
+        <h1 style="color: white; font-weight: bold; margin: 0px;">{{rail3.name}}</h1>
+      </button>
+      <div id="first-{{rail3.name}}" class="first-square">
+        <h1 style="transform: rotate(-45deg);"><b>{{rail3.firstVal}}</b></h1>
+      </div>
+      <div id="second-{{rail3.name}}" class="second-square">
+        <h1><b>{{rail3.secondVal}}</b></h1>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div *ngFor="let rail4 of rails4" class="rail">
+      <button mat-fab selected [ngStyle]="{'background-color': rail4.color}" class="rail-button"
+        (click)="claimRail(rail4.name)">
+        <h1 style="color: white; font-weight: bold; margin: 0px;">{{rail4.name}}</h1>
+      </button>
+      <div id="first-{{rail4.name}}" class="first-square">
+        <h1 style="transform: rotate(-45deg);"><b>{{rail4.firstVal}}</b></h1>
+      </div>
+      <div id="second-{{rail4.name}}" class="second-square">
+        <h1><b>{{rail4.secondVal}}</b></h1>
       </div>
     </div>
   </div>

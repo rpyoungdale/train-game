@@ -155,6 +155,7 @@ export class CardComponent implements OnInit, OnDestroy {
     this.forward = true;
     this.needsShuffle = false;
     this.cardFlipped = false;
+    this.gameOver = false;
     this.shuffle();
   }
 

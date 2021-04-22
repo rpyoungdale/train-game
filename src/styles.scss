@@ -1,12 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
+html, body { 
+  height: 100%;
+  box-sizing: border-box;
+}
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-.header {
-  margin-top: 64px;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 24px;
+.penalty-table-sheet {
+  height: 65vh;
+}
+
+.settings-sheet {
+  height: 45vh;
 }

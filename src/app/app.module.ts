@@ -13,10 +13,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { RailsComponent } from './rails/rails.component';
 import { MatChipsModule } from '@angular/material/chips';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ScoreSheetComponent } from './score-sheet/score-sheet.component';
 import { FooterComponent } from './footer/footer.component';
 import { GameSetupComponent } from './game-setup/game-setup.component';
+import { SettingsComponent } from './settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,8 @@ import { GameSetupComponent } from './game-setup/game-setup.component';
     RailsComponent,
     ScoreSheetComponent,
     FooterComponent,
-    GameSetupComponent
+    GameSetupComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +44,9 @@ import { GameSetupComponent } from './game-setup/game-setup.component';
     MatChipsModule,
     DragDropModule,
     MatBottomSheetModule,
+    MatDialogModule,
+    MatButtonToggleModule,
+    MatSlideToggleModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

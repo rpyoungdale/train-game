@@ -1,11 +1,51 @@
-.toolbar {
-  background-color: slategray;
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 18vh;
+}
+
+.coffee-link {
+  display: flex;
+  margin-left: 4vw;
+  min-width: 18vw;
+  text-align: center;
+}
+
+.coffee-link a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  font-size: 14px;
+  font-family: 'Courier New', Courier, monospace;
+  align-self: flex-end;
+}
+
+.nav-logo {
+  display: flex;
   justify-content: center;
+  width: 100%;
+}
+
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 4vw;
+  min-width: 18vw;
 }
 
 .container {
   display: flex;
-  flex-wrap: wrap;
+  position: fixed;
+  width: -webkit-fill-available;
+  top: 18vh;
+  height: 65vh;
+  align-items: center;
+  overflow-y: auto;
+  padding: 0vw 4vw;
 }
 
 .card-flipper {
@@ -14,7 +54,6 @@
 
 .letters {
   width: 50%;
-  justify-content: flex-end;
 }
 
 .score-card {
@@ -50,14 +89,3 @@
   padding-left: 50px!important;
   padding-right: 50px!important;
 }
-
-.coffee-link {
-  text-decoration: none;
-  color: #8696A0;
-  // font-family: cursive !important;
-  font-size: 28px;
-}
-
-// .footer {
-//   overflow-x: scroll;
-// }

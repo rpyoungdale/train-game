@@ -1,0 +1,29 @@
+<div class="settings-dialog">
+  <h1 class="title">Settings</h1>
+  <div class="settings-options">
+    <div class="settings-option">
+      <div class="setting-text">
+        <h3 style="font-weight: bold;">Map</h3>
+        <h3 style="font-weight: lighter;">Change the game mode for a more difficult game.</h3>
+      </div>
+      <div class="settings-selector">
+        <mat-button-toggle-group value="{{data.gameMode}}" (change)="changeMode($event.value)">
+          <mat-button-toggle value="metro" selected>Metro City</mat-button-toggle>
+          <mat-button-toggle value="tube">Tube Town</mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
+    </div>
+    <div class="settings-option">
+      <div class="setting-text">
+        <h3 style="font-weight: bold;">Dark Mode</h3>
+        <h3 style="font-weight: lighter;">Darken the mood for late-night gameplay.</h3>
+      </div>
+      <div class="settings-selector">
+        <mat-slide-toggle
+          [checked]="checked"
+          (change)="toggleDarkMode($event)">
+        </mat-slide-toggle>
+      </div>
+    </div>
+  </div>
+</div>

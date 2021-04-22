@@ -1,17 +1,19 @@
-<!-- <mat-toolbar class="toolbar">Welcome to Metro X!</mat-toolbar> -->
-<div class="header" style="text-align: center; margin-top: 30px;">
-  <!-- <a class="coffee-link" href="https://www.buymeacoffee.com/ryoungdale">Buy the developer a coffee</a> -->
-  <div style="width: 63%; text-align: end;">
-    <img src="../../assets/metro-logo.svg">
+<div class="navbar">
+  <div class="coffee-link">
+    <img id="coffee-image" src="../../assets/light-akar-icons_coffee.svg" alt="">
+    &nbsp;&nbsp;&nbsp;<a id="coffee-a-tag" href="https://www.buymeacoffee.com/ryoungdale" target="_blank" rel="noopener noreferrer">Buy the developer a coffee</a>
   </div>
-  <div style="width: 37%; text-align: end; padding-right: 64px;">
-    <button mat-raised-button style="margin-right: 30px;" class="score-card" (click)="startNewGame()">
+  <div class="nav-logo">
+    <img id="metro-logo" src="../../assets/metro-logo.svg">
+  </div>
+  <div class="nav-buttons">
+    <button mat-raised-button class="score-card" (click)="startNewGame()">
       <mat-icon style="font-weight: bold;">refresh</mat-icon>
     </button>
-    <button mat-raised-button style="margin-right: 30px;" class="score-card" (click)="openScoreCard()">
+    <button mat-raised-button class="score-card" (click)="openSettings()">
       <mat-icon style="font-weight: bold;">settings</mat-icon>
     </button>
-    <button mat-raised-button class="score-card" (click)="openScoreCard()"><mat-icon style="font-weight: bold;">list</mat-icon></button>
+    <button mat-raised-button  class="score-card" (click)="openScoreCard()"><mat-icon style="font-weight: bold;">list</mat-icon></button>
   </div>
 </div>
 <div class="container">
